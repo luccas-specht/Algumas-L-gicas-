@@ -1,5 +1,3 @@
-package projeto.dos.cria.criaif.questao;
-
 
 public class Questao1 {
 

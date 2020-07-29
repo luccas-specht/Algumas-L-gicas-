@@ -1,5 +1,3 @@
-package projeto.dos.cria.criaif.questao;
-
 
 import java.util.Arrays;
 import java.util.Comparator;
