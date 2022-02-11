@@ -1,7 +1,7 @@
 const quickSort = (arr) => {
   if (arr.length < 2) return arr;
 
-  const pivot = arr[arr.length/2];
+  const pivot = arr[0];
   const smallest = arr.filter((element) => element < pivot);
   const biggest = arr.filter((element) => element > pivot);
 
