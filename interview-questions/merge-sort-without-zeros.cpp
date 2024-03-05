@@ -73,6 +73,7 @@ void mergeSort(vector<int>& arr, int left, int right) {
 
 int main() {
      vector<int> arr = {33, -8, 0, 4, 7, 0, 20, 1, 0, 4};
+     // must improve: 0(N log(N)) + O(n^2)
     mergeSort(arr, 0, arr.size() - 1);
     
      for (int i = 0; i < arr.size(); i++) {
