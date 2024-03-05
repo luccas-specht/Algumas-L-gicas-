@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     vector<int> arr = {10, 7, 2, -1, 9};
-    int n = 5;
+    int n = arr.size();
     
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
