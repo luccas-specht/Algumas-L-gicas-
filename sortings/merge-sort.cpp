@@ -15,28 +15,33 @@
 
 using namespace std;
 
+// Função para fundir duas partes ordenadas do array em uma única parte ordenada
 void merge(vector<int>& arr, int left, int middle, int right)  {
 
+  // Criar dois subarrays temporários para armazenar os elementos da parte esquerda e da parte direita
   vector<int> leftArray(arr.begin() + left, arr.begin() + middle + 1);
   vector<int> rightArray(arr.begin() + middle + 1, arr.begin() + right + 1);
 
-   int i = 0, j = 0, k = left;
+   // Inicializar índices para percorrer os subarrays esquerdo, direito e o array original
+   int indexInLeft = 0, indexInRight = 0, indexInOriginalArray = left;
 
-    while (i < leftArray.size() && j < rightArray.size()) {
-        if (leftArray[i] <= rightArray[j]) {
-          arr[k] = leftArray[i];
-          i++;
+   // Combinar os elementos dos subarrays esquerda e direita de forma ordenada no array original
+    while (indexInLeft < leftArray.size() && indexInRight < rightArray.size()) {
+        if (leftArray[indexInLeft] <= rightArray[indexInRight]) {
+          arr[indexInOriginalArray] = leftArray[indexInLeft];
+          indexInLeft++;
         } else {
-          arr[k] = rightArray[j];
-          j++;
+          arr[indexInOriginalArray] = rightArray[indexInRight];
+          indexInRight++;
         }
-        k++;
+        indexInOriginalArray++;
     }
 
-    while (i < leftArray.size()) {
-          arr[k] = leftArray[i];
-          i++;
-          k++;
+  // Copiar quaisquer elementos restantes do subarray esquerdo (se houver)
+    while (indexInLeft < leftArray.size()) {
+          arr[indexInOriginalArray] = leftArray[indexInLeft];
+          indexInLeft++;
+          indexInOriginalArray++;
       }
 }
 
@@ -66,7 +71,7 @@ void mergeSort(vector<int>& arr, int left, int right) {
 }
 
 int main() {
-    vector<int> arr = {10, 4, 7, -1, 0, 6};
+    vector<int> arr = {10, 4, 7, -1, 0, 6, 88, 30, 2, 3, 4, 5 ,4, 4, 4, 1};
     mergeSort(arr, 0, arr.size() - 1);
    
      for (int i = 0; i < arr.size(); i++) {
